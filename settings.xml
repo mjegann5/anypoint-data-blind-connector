@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 http://maven.apache.org/xsd/settings-1.0.0.xsd">
+
+
+  <!-- servers
+   | This is a list of authentication profiles, keyed by the server-id used within the system.
+   | Authentication profiles can be used whenever maven must make a connection to a remote server.
+   |-->
+  <servers>
+ 
+	
+    <server>
+    <id>anypoint-exchange</id>
+    <username>${anypoint_username}</username>
+    <password>${anypoint_password}</password>
+	</server>
+<!--  
+  	<server>
+    <id>anypoint-exchange</id>
+    <username>mjegann</username>
+    <password>Jegan123</password>
+	</server>
+-->
+  </servers>
+
+  <profiles>
+
+	<profile>
+                    <id>Mule</id>
+                    <activation>
+                        <activeByDefault>true</activeByDefault>
+                    </activation>
+                    <repositories>
+                        <repository>
+                            <id>MuleRepository</id>
+                            <name>MuleRepository</name>
+                            <url>https://repository.mulesoft.org/nexus-ee/content/repositories/releases-ee/</url>
+                            <layout>default</layout>
+                            <releases>
+                                <enabled>true</enabled>
+                            </releases>
+                            <snapshots>
+                                <enabled>true</enabled>
+                            </snapshots>
+                        </repository>
+                    </repositories>
+                </profile>
+
+
+	<profile>
+            <id>mule-extra-repos</id>
+            <activation>
+                <activeByDefault>true</activeByDefault>
+            </activation>
+            <repositories>
+                <repository>
+                    <id>mule-public</id>
+                    <url> https://repository.mulesoft.org/nexus/content/repositories/public </url>
+                </repository>
+            </repositories>
+            <pluginRepositories>
+                <pluginRepository>
+                    <id>mule-public</id>
+                    <url> https://repository.mulesoft.org/nexus/content/repositories/public </url>
+                </pluginRepository>
+            </pluginRepositories>
+        </profile>
+    <profile>
+      <id>github</id>
+	  <activation>
+        <activeByDefault>true</activeByDefault>
+      </activation>
+      <repositories>
+        <repository>
+          <id>central</id>
+          <url>https://repo1.maven.org/maven2</url>
+          <releases><enabled>true</enabled></releases>
+          <snapshots><enabled>true</enabled></snapshots>
+        </repository>
+        <repository>
+          <id>github</id>
+          <name>GitHub OWNER Apache Maven Packages</name>
+     	  <url>https://maven.pkg.github.com/mjegann5/Securebort</url>
+        </repository>
+      </repositories>
+    </profile>
+	</profiles>
+
+ 
+</settings>

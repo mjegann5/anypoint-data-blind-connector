@@ -5,7 +5,7 @@
 	<!--   <groupId>com.cw.cwconnector</groupId>   -->
 	<groupId>087be403-83ed-4643-9c36-cd33bf4d0423</groupId>
 	<artifactId>cwconnector</artifactId>
-	<version>1.0.1</version>
+	<version>1.0.2</version>
 	<packaging>mule-extension</packaging>
 	<name>Data Blind</name>
 	<!--     
