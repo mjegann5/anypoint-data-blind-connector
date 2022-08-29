@@ -16,7 +16,7 @@ How to use this connector:
 
 6. Add the following to the pom.xml
 
-      <plugins>
+      "<plugins>
                         ...
                         ...
                         ...
@@ -57,17 +57,17 @@ How to use this connector:
                 ...
                 ...
                 ...
-     </repositories>
+     </repositories>"
 
 7. Add the following to the settings.xml. Contact Kavi Software to get the password
 
-  <servers>
+  "<servers>
     <server>
     <id>cwrep</id>
     <username>~~~Token~~~</username>
     <password>*********************</password>
 	</server>
-  </servers>
+  </servers>"
 
 
 Trouble shooting:
