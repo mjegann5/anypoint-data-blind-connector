@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ANYPOINT_ORG_ID</groupId>
 	<artifactId>cwconnector</artifactId>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<packaging>mule-extension</packaging>
 	<name>Data Blind</name>
 	<parent>
