@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>ANYPOINT_ORG_ID</groupId>
 	<artifactId>cwconnector</artifactId>
-	<version>1.0.3</version>
+	<version>1.0.10</version>
 	<packaging>mule-extension</packaging>
 	<name>Data Blind</name>
 	<parent>
@@ -16,7 +16,7 @@
 		<dependency>
 			<groupId>io.cipherworks</groupId>
 			<artifactId>cwdatacrypt</artifactId>
-			<version>0.0.1</version>
+			<version>0.0.3</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>

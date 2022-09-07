@@ -14,8 +14,8 @@ import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.Connection;
 import org.mule.runtime.api.meta.ExpressionSupport;
 import io.cipherworks.cwdatacrypt.*;
-
-
+import io.cipherworks.util.*;
+import io.cipherworks.util.JsonDataCrypt;
 
 /**
  * This class is a container for operations, every public method in this class will be taken as an extension operation.
@@ -33,7 +33,7 @@ public class CWOperations {
   /**
    * Example of a simple operation that receives a string parameter and returns a new string message that will be set on the payload.
    */
- /* @Parameter
+  /*@Parameter
   @DisplayName("Data Type")
   @OfValues(CWTypeProvider.class)
   private String cwType;
@@ -51,9 +51,9 @@ public class CWOperations {
   @MediaType(value = ANY, strict = false)
   @Alias("Encrypt")
   public String encrypt(@Config CWConfiguration configuration,
-		  @OfValues(CWTypeProvider.class) String dataType,
-		  @Expression(ExpressionSupport.SUPPORTED) String value,
-		  @Expression(ExpressionSupport.SUPPORTED) String tweak) {
+		  @DisplayName("Data Type") @OfValues(CWTypeProvider.class) String dataType,
+		  @DisplayName("Value") @Expression(ExpressionSupport.SUPPORTED) String value,
+		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
     //return plainText.toUpperCase() + cwType + ":" + configuration.getEncryptionKey() + ":" + configuration.getLicenseKey();
     String response = "OperationFailed";
     try {
@@ -111,9 +111,9 @@ public class CWOperations {
   @MediaType(value = ANY, strict = false)
   @Alias("decrypt")
   public String decrypt(@Config CWConfiguration configuration,
-		  @OfValues(CWTypeProvider.class) String dataType,
-		  @Expression(ExpressionSupport.SUPPORTED) String mockValue,
-		  @Expression(ExpressionSupport.SUPPORTED) String tweak) {
+		  @DisplayName("Data Type") @OfValues(CWTypeProvider.class) String dataType,
+		  @DisplayName("Mock Value") @Expression(ExpressionSupport.SUPPORTED) String mockValue,
+		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
     //return mockValue.toUpperCase() + dataType + ":" + configuration.getdecryptionKey() + ":" + configuration.getLicenseKey();
     String response = "OperationFailed";
     try {
@@ -164,6 +164,43 @@ public class CWOperations {
     catch (Exception e) {
     	System.out.println("Excception in Connector " + e);
     	e.printStackTrace();    	
+    }
+    return response;
+  }
+  
+  @MediaType(value = ANY, strict = false)
+  @Alias("EncryptJson")
+  public String encryptJson(@Config CWConfiguration configuration,
+		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
+		  @DisplayName("Sensitive JSON") @Expression(ExpressionSupport.SUPPORTED) String sensitiveJson,
+		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
+    String response = "OperationFailed";
+    try {    
+        KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
+    	JsonDataCrypt jsonDataCrypt = new JsonDataCrypt(kc);
+    	response = jsonDataCrypt.transform( "Encrypt", tweak, sensitiveJson, sensitiveFields);
+    }
+    catch (Exception e) {
+    	System.out.println("Excception in Connector " + e);
+    	e.printStackTrace();
+    }
+    return response;
+  }
+ @MediaType(value = ANY, strict = false)
+  @Alias("DecryptJson")
+  public String decryptJson(@Config CWConfiguration configuration,
+		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
+		  @DisplayName("Encrypted JSON") @Expression(ExpressionSupport.SUPPORTED) String encryptedJson,
+		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
+    String response = "OperationFailed";
+    try {    
+        KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
+    	JsonDataCrypt jsonDataCrypt = new JsonDataCrypt(kc);
+    	response = jsonDataCrypt.transform( "Decrypt", tweak, encryptedJson, sensitiveFields);
+    }
+    catch (Exception e) {
+    	System.out.println("Excception in Connector " + e);
+    	e.printStackTrace();
     }
     return response;
   }

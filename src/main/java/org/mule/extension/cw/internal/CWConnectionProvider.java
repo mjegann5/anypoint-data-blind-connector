@@ -5,6 +5,7 @@ import org.mule.runtime.extension.api.annotation.param.Parameter;
 import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.api.connection.ConnectionValidationResult;
 import org.mule.runtime.api.connection.PoolingConnectionProvider;
+import org.mule.runtime.api.meta.ExternalLibraryType;
 import org.mule.runtime.api.connection.ConnectionProvider;
 import org.mule.runtime.api.connection.CachedConnectionProvider;
 import org.mule.runtime.extension.api.annotation.param.display.DisplayName;
@@ -43,6 +44,13 @@ type = org.mule.runtime.api.meta.ExternalLibraryType.DEPENDENCY)
  * will be pooled and reused. There are other implementations like {@link CachedConnectionProvider} which lazily creates and
  * caches connections or simply {@link ConnectionProvider} if you want a new connection each time something requires one.
  */
+
+/*@ExternalLib(name = "CW Datacrypt",
+description = "Library Containg Encryptable Data Types",
+nameRegexpMatcher = "(.*)\\.jar",
+requiredClassName = "io.cipherworks.util.JsonDataCrypt",
+coordinates = "io.cipherworks:cwdatacrypt:0.0.3", 
+type = ExternalLibraryType.DEPENDENCY)*/
 public class CWConnectionProvider implements PoolingConnectionProvider<CWConnection> {
 
   private final Logger LOGGER = LoggerFactory.getLogger(CWConnectionProvider.class);
