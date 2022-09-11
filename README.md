@@ -1,6 +1,6 @@
 # Mule 4 Data Blind Connector
 
-## How to use this connector:
+## How to Publish this connector to your Exchange?:
 
 1. Clone this repo
 ```
@@ -80,3 +80,12 @@
 
 - If you get 401 error make sure user name password is correct and the user has Exchange_Contributor permission
 - If you get a 409 error then you already has the this version of the Data-Blind connector. If you delete the current version in exchange, you will be able to upload this version again.
+
+
+## How to Use this connector to mulesoft flow:
+
+Refer to anypoint-data-blind-demo application. You can clone the repo and import into Anypoint studio and try this application. You would need key for cwrepo to run this demo. Please contact Kavi Software for the trail key.
+
+
+
+
