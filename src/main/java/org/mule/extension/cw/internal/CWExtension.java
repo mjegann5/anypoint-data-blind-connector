@@ -10,7 +10,7 @@ import org.mule.runtime.extension.api.annotation.dsl.xml.Xml;
  * and sources are going to be declared.
  */
 @Xml(prefix = "cw")
-@Extension(name = "BLIND")
+@Extension(name = "DATA BLIND")
 @Configurations(CWConfiguration.class)
 public class CWExtension {
 
