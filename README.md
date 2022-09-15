@@ -1,4 +1,4 @@
-# Mule4 Data Blind Connector
+# Anypoint 4 Data Blind Connector
 
 ## How to Publish this connector to your Exchange
 
