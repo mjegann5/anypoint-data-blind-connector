@@ -1,4 +1,4 @@
-# Mule 4 Data Blind Connector
+# Mule4 Data Blind Connector
 
 ## How to Publish this connector to your Exchange?:
 
@@ -111,7 +111,7 @@ NIST Publication 800-38G, FPE FF1.
 
 ## Input JSON:
 
-	    "accounting" : 
+	    "legal" : 
  		[   
  			{ 
  			"firstName" : "John",  
@@ -124,7 +124,7 @@ NIST Publication 800-38G, FPE FF1.
  			"age"      : 32 
  			}
  		],                           
-	    "sales": 
+	    "marketing": 
 		[ 
   			{ 
   			"firstName" : "Sally",
@@ -137,15 +137,15 @@ NIST Publication 800-38G, FPE FF1.
   			"age"       : 41 
   			}
   		],
-  	    "companyName" : "First & Best Corporation",
-  	    "address" : "Street1, City, State, Country",
-  	    "phoneNumber" : "123456789"
+  	    "companyName" : "True Value Corporation",
+  	    "address" : "123 First Street, Newyork, NY, USA",
+  	    "contactNumber" : "123456789"
     }
 
 
 ## Output JSON:
 
-    "accounting": [
+    "legal": [
         {
             "firstName": "ooQ9OqV3wIZeG+MkEk1KFw==",
             "lastName": "Ees",
@@ -157,7 +157,7 @@ NIST Publication 800-38G, FPE FF1.
             "age": "***************************"
         }
     ],
-    "sales": [
+    "marketing": [
         {
             "firstName": "Sally",
             "lastName": "Green",
@@ -169,7 +169,7 @@ NIST Publication 800-38G, FPE FF1.
             "age": 41
         }
     ],
-    "companyName": "First & Best Corporation",
-    "address": "Street1, City, State, Country",
-    "phoneNumber": "128388658"
+    "companyName": "True Value  Corporation",
+    "address": "123 First Street, Newyork, NY, USA",
+    "contactNumber": "128388658"
     }
