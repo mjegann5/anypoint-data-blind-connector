@@ -80,6 +80,8 @@
 
 ## Input JSON
 
+```
+{
 	    "legal" : 
  		[   
  			{ 
@@ -109,19 +111,20 @@
   	    "companyName" : "True Value Corporation",
   	    "address" : "123 First Street, Newyork, NY, USA",
   	    "contactNumber" : "123456789"
-    }
-
+}
+ ```
 ## Sensitive Fields
-
+```
 {
         "legal.lastName" : "PersonName",
         "legal.firstName" : "Aes128CBC",
         "legal.age" : "CharacterMask",
         "contactNumber" : "PhoneNumber"
 }
-
+```
 ## Output JSON
-
+```
+{
     "legal": [
         {
             "firstName": "ooQ9OqV3wIZeG+MkEk1KFw==",
@@ -149,12 +152,12 @@
     "companyName": "True Value  Corporation",
     "address": "123 First Street, Newyork, NY, USA",
     "contactNumber": "128388658"
-    }
-
+}
+```
 ## Trouble shooting
 
-- If you get 401 error make sure user name password is correct and the user has Exchange_Contributor permission
-- If you get a 409 error then you already has the this version of the Data-Blind connector. If you delete the current version in exchange, you will be able to upload this version again.
+- If you get 401 error in 'maven deploy', verify the anypoint user name and password and ensure that the user has Exchange_Contributor permission
+- If you get a 409 error in 'maven deploy' then you already has the this version this connector in your exchange. 
 
 
 ## How to Use this connector in mulesoft flow
