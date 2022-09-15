@@ -76,37 +76,6 @@
   ```
 
 
-## Trouble shooting:
-
-- If you get 401 error make sure user name password is correct and the user has Exchange_Contributor permission
-- If you get a 409 error then you already has the this version of the Data-Blind connector. If you delete the current version in exchange, you will be able to upload this version again.
-
-
-## How to Use this connector to mulesoft flow:
-
-Refer to anypoint-data-blind-demo application. You can clone the repo and import into Anypoint studio and try this application. You would need key for cwrepo to run this demo. Please contact Kavi Software for the trail key.
-
-
-## How Data is Encrypted 
-NIST Publication 800-38G, FPE FF1. 
-
-## Encryptable Data Types 
-
-- Date
-- DateTime
-- IP Address
-- GPS
-- UPC-A
-- Credit Card Number
-- SSN
-- Street Address
-- Currency Amount
-- Phone Number
-- Person Name
-- Email Address
-- JPEG, GIF, TIFF, PNG  Images
-- JSON Containing any of the above
-
 # Example:
 
 ## Input JSON:
@@ -181,3 +150,34 @@ NIST Publication 800-38G, FPE FF1.
     "address": "123 First Street, Newyork, NY, USA",
     "contactNumber": "128388658"
     }
+
+## Trouble shooting:
+
+- If you get 401 error make sure user name password is correct and the user has Exchange_Contributor permission
+- If you get a 409 error then you already has the this version of the Data-Blind connector. If you delete the current version in exchange, you will be able to upload this version again.
+
+
+## How to Use this connector in mulesoft flow:
+
+Refer to anypoint-data-blind-demo application. You can clone the repo and import into Anypoint studio and try this application. You would need key for cwrepo to run this demo. Please contact Kavi Software for the trail key.
+
+
+## How Data is Encrypted 
+NIST Publication 800-38G, FPE FF1. 
+
+## Encryptable Data Types 
+
+- Date
+- DateTime
+- IP Address
+- GPS
+- UPC-A
+- Credit Card Number
+- SSN
+- Street Address
+- Currency Amount
+- Phone Number
+- Person Name
+- Email Address
+- JPEG, GIF, TIFF, PNG  Images
+- JSON Containing any of the above
