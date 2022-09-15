@@ -142,6 +142,14 @@ NIST Publication 800-38G, FPE FF1.
   	    "contactNumber" : "123456789"
     }
 
+## Sensitive Fields
+
+{
+        "legal.lastName" : "PersonName",
+        "legal.firstName" : "Aes128CBC",
+        "legal.age" : "CharacterMask",
+        "contactNumber" : "PhoneNumber"
+}
 
 ## Output JSON:
 
