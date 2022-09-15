@@ -87,5 +87,89 @@
 Refer to anypoint-data-blind-demo application. You can clone the repo and import into Anypoint studio and try this application. You would need key for cwrepo to run this demo. Please contact Kavi Software for the trail key.
 
 
+## How Data is Encrypted 
+NIST Publication 800-38G, FPE FF1. 
+
+## Encryptable Data Types 
+
+- Date
+- DateTime
+- IP Address
+- GPS
+- UPC-A
+- Credit Card Number
+- SSN
+- Street Address
+- Currency Amount
+- Phone Number
+- Person Name
+- Email Address
+- JPEG, GIF, TIFF, PNG  Images
+- JSON Containing any of the above
+
+# Example:
+
+## Input JSON:
+
+	    "accounting" : 
+ 		[   
+ 			{ 
+ 			"firstName" : "John",  
+ 			"lastName"  : "Doe",
+ 			"age"       : 23 
+ 			},
+			{
+			"firstName" : "Mary",  
+ 			"lastName"  : "Smith",
+ 			"age"      : 32 
+ 			}
+ 		],                           
+	    "sales": 
+		[ 
+  			{ 
+  			"firstName" : "Sally",
+  			"lastName"  : "Green",
+  			"age"      : 27 
+ 			}, 
+  			{ 
+  			"firstName" : "Jim", 
+  			"lastName"  : "Galley",
+  			"age"       : 41 
+  			}
+  		],
+  	    "companyName" : "First & Best Corporation",
+  	    "address" : "Street1, City, State, Country",
+  	    "phoneNumber" : "123456789"
+    }
 
 
+## Output JSON:
+
+    "accounting": [
+        {
+            "firstName": "ooQ9OqV3wIZeG+MkEk1KFw==",
+            "lastName": "Ees",
+            "age": "***************************"
+        },
+        {
+            "firstName": "/bbIa8Bzy76zsfqnUKWt7A==",
+            "lastName": "Edmgy",
+            "age": "***************************"
+        }
+    ],
+    "sales": [
+        {
+            "firstName": "Sally",
+            "lastName": "Green",
+            "age": 27
+        },
+        {
+            "firstName": "Jim",
+            "lastName": "Galley",
+            "age": 41
+        }
+    ],
+    "companyName": "First & Best Corporation",
+    "address": "Street1, City, State, Country",
+    "phoneNumber": "128388658"
+    }
