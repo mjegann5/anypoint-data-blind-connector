@@ -10,7 +10,12 @@
 ```
        <groupId>ANYPOINT_ORG_ID</groupId> => <groupId>5tdfgceb5-fd1f-456d-aaa2-19cdsddcea</groupId>
 ```
-3. mvn deploy -DskipTests -s .\settings.xml -Danypoint_username="******" -Danypoint_password="******"
+3. Run the maven command to deploy data blind to your exchange 
+
+```
+       mvn deploy -DskipTests -s .\settings.xml -Danypoint_username="******" -Danypoint_password="******"
+       
+```
 
 4. Go to Anypoint Studio and pull the connector to your palette.
 
