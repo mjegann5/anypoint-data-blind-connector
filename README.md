@@ -21,7 +21,7 @@
 
 5. Drop the Encrypt / Decrypt operations in your flow
 
-6. Add the following to the pom.xml
+6. Add the following to the pom.xml.  
 
       ```
       <plugins>
@@ -42,7 +42,7 @@
 								<dependency>
 									<groupId>io.cipherworks</groupId>
 									<artifactId>cwdatacrypt</artifactId>
-									<version>0.0.1</version>
+									<version>1.0.7</version>
 								</dependency>
 							</additionalDependencies>
 						</plugin>
