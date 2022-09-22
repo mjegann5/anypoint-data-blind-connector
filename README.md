@@ -1,6 +1,6 @@
-# Mule 4 Data Blind Connector
+# Anypoint Data Blind Connector
 
-## How to Publish this connector to your Exchange?:
+## How to Publish the connector to your Exchange?:
 
 1. Clone this repo
 ```
