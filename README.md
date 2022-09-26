@@ -16,6 +16,7 @@
        mvn deploy -DskipTests -s .\settings.xml -Danypoint_username="******" -Danypoint_password="******"
        
 ```
+## How to use this connector in your Anypoint Application
 
 4. Go to Anypoint Studio and pull the connector to your palette.
 
@@ -68,7 +69,7 @@
      </repositories>
      ```
 
-7. Add the following to the settings.xml. Contact Kavi Software to get the password
+7. Add the following to the settings.xml. Contact Kavi Software to get the token for 'cwrep' repository 
 
   ```
   <servers>
