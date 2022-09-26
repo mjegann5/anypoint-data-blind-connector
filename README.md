@@ -122,10 +122,10 @@
 ## Sensitive Fields
 ```
 {
-        "legal.lastName" : "PersonName",
-        "legal.firstName" : "Aes128CBC",
-        "legal.age" : "CharacterMask",
-        "contactNumber" : "PhoneNumber"
+        "legal.firstName" : "AES:CBC",       /* legal.firstName will be encrypted using AES CBC Algorithm */
+	"legal.lastName" : "FE:PersonName",  /* legal.lastName will be encrypted as a Format Preserved PERSON-NAME field */
+        "legal.age" : "MASK:#",              /* legal.age will be masked as ######## */
+        "contactNumber" : "FE:PhoneNumber"   /* contactNumber will be encrypted as a Format Preserved PHONE-NUMBER field */
 }
 ```
 ## Output JSON
@@ -135,12 +135,12 @@
         {
             "firstName": "ooQ9OqV3wIZeG+MkEk1KFw==",
             "lastName": "Ees",
-            "age": "***************************"
+            "age": "#######################"
         },
         {
             "firstName": "/bbIa8Bzy76zsfqnUKWt7A==",
             "lastName": "Edmgy",
-            "age": "***************************"
+            "age": "#######################"
         }
     ],
     "marketing": [
