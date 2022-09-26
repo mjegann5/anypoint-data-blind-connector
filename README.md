@@ -10,7 +10,7 @@
 ```
        <groupId>ANYPOINT_ORG_ID</groupId> => <groupId>5tdfgceb5-fd1f-456d-aaa2-19cdsddcea</groupId>
 ```
-3. Run the maven command to deploy data blind to your exchange 
+3. Run the maven command to deploy data blind to your exchange. (anypoint_username and anypoint_password are your anypoint platform credentials)
 
 ```
        mvn deploy -DskipTests -s .\settings.xml -Danypoint_username="******" -Danypoint_password="******"
