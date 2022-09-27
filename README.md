@@ -84,7 +84,7 @@
 
 # Example
 
-(/assets/DataBlind-EncryptConcept1.jpg)
+![Concept](/assets/DataBlind-EncryptConcept1.jpg)
 
 ## Input JSON
 
