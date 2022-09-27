@@ -84,6 +84,8 @@
 
 # Example
 
+(/assets/DataBlind-EncryptConcept1.jpg)
+
 ## Input JSON
 
 ```
