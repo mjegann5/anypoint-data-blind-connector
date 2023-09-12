@@ -74,7 +74,7 @@
   ```
   <servers>
     <server>
-    <id>cwrep</id>
+    <id>cwrepo</id>
     <username>~~~Token~~~</username>
     <password>*********************</password>
 	</server>
