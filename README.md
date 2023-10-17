@@ -10,12 +10,13 @@
 ```
        <groupId>ANYPOINT_ORG_ID</groupId> => <groupId>5tdfgceb5-fd1f-456d-aaa2-19cdsddcea</groupId>
 ```
-3. Run the maven command to deploy data blind to your exchange 
+3. Run the maven command to deploy data blind to your exchange. (anypoint_username and anypoint_password are your anypoint platform credentials)
 
 ```
        mvn deploy -DskipTests -s .\settings.xml -Danypoint_username="******" -Danypoint_password="******"
        
 ```
+## How to use this connector in your Anypoint Application
 
 4. Go to Anypoint Studio and pull the connector to your palette.
 
@@ -68,12 +69,12 @@
      </repositories>
      ```
 
-7. Add the following to the settings.xml. Contact Kavi Software to get the password
+7. Add the following to the settings.xml. Contact Kavi Software to get the token for 'cwrep' repository 
 
   ```
   <servers>
     <server>
-    <id>cwrep</id>
+    <id>cwrepo</id>
     <username>~~~Token~~~</username>
     <password>*********************</password>
 	</server>
@@ -82,6 +83,8 @@
 
 
 # Example
+
+![Concept](/assets/DataBlind-EncryptConcept1.jpg)
 
 ## Input JSON
 
@@ -121,10 +124,10 @@
 ## Sensitive Fields
 ```
 {
-        "legal.lastName" : "PersonName",
-        "legal.firstName" : "Aes128CBC",
-        "legal.age" : "CharacterMask",
-        "contactNumber" : "PhoneNumber"
+        "legal.firstName" : "AES:CBC",       /* legal.firstName will be encrypted using AES CBC Algorithm */
+	"legal.lastName" : "FE:PersonName",  /* legal.lastName will be encrypted as a Format Preserved PERSON-NAME field */
+        "legal.age" : "MASK:#",              /* legal.age will be masked as ######## */
+        "contactNumber" : "FE:PhoneNumber"   /* contactNumber will be encrypted as a Format Preserved PHONE-NUMBER field */
 }
 ```
 ## Output JSON
@@ -134,12 +137,12 @@
         {
             "firstName": "ooQ9OqV3wIZeG+MkEk1KFw==",
             "lastName": "Ees",
-            "age": "***************************"
+            "age": "#######################"
         },
         {
             "firstName": "/bbIa8Bzy76zsfqnUKWt7A==",
             "lastName": "Edmgy",
-            "age": "***************************"
+            "age": "#######################"
         }
     ],
     "marketing": [
