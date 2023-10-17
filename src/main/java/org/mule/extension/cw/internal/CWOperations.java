@@ -53,7 +53,8 @@ public class CWOperations {
   public String encrypt(@Config CWConfiguration configuration,
 		  @DisplayName("Data Type") @OfValues(CWTypeProvider.class) String dataType,
 		  @DisplayName("Value") @Expression(ExpressionSupport.SUPPORTED) String value,
-		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
+		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) 
+  {
     //return plainText.toUpperCase() + cwType + ":" + configuration.getEncryptionKey() + ":" + configuration.getLicenseKey();
     String response = "OperationFailed";
     try {
@@ -173,12 +174,14 @@ public class CWOperations {
   public String encryptJson(@Config CWConfiguration configuration,
 		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
 		  @DisplayName("Sensitive JSON") @Expression(ExpressionSupport.SUPPORTED) String sensitiveJson,
-		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
+		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
+  		  @DisplayName("OverRideToken") @Expression(ExpressionSupport.SUPPORTED) String overRideToken, 
+  		  @DisplayName("PassPhrase") @Expression(ExpressionSupport.SUPPORTED) String passPhrase) {
     String response = "OperationFailed";
     try {    
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
     	JsonDataCrypt jsonDataCrypt = new JsonDataCrypt(kc);
-    	response = jsonDataCrypt.transform( "Encrypt", tweak, sensitiveJson, sensitiveFields);
+    	response = jsonDataCrypt.transform( "Encrypt", tweak, sensitiveJson, sensitiveFields, overRideToken, passPhrase);
     }
     catch (Exception e) {
     	System.out.println("Excception in Connector " + e);
@@ -191,12 +194,14 @@ public class CWOperations {
   public String decryptJson(@Config CWConfiguration configuration,
 		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
 		  @DisplayName("Encrypted JSON") @Expression(ExpressionSupport.SUPPORTED) String encryptedJson,
-		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
+		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
+  		  @DisplayName("OverRideToken") @Expression(ExpressionSupport.SUPPORTED) String overRideToken, 
+  		  @DisplayName("PassPhrase") @Expression(ExpressionSupport.SUPPORTED) String passPhrase) {
     String response = "OperationFailed";
     try {    
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
     	JsonDataCrypt jsonDataCrypt = new JsonDataCrypt(kc);
-    	response = jsonDataCrypt.transform( "Decrypt", tweak, encryptedJson, sensitiveFields);
+    	response = jsonDataCrypt.transform( "Decrypt", tweak, encryptedJson, sensitiveFields, overRideToken, passPhrase);
     }
     catch (Exception e) {
     	System.out.println("Excception in Connector " + e);
