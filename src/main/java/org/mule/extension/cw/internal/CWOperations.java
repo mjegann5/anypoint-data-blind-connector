@@ -12,6 +12,7 @@ import org.mule.runtime.extension.api.annotation.values.OfValues;
 import org.mule.runtime.extension.api.annotation.Alias;
 import org.mule.runtime.extension.api.annotation.Expression;
 import org.mule.runtime.extension.api.annotation.param.MediaType;
+import org.mule.runtime.extension.api.annotation.param.Optional;
 import org.mule.runtime.extension.api.annotation.param.Config;
 import org.mule.runtime.extension.api.annotation.param.Connection;
 import org.mule.runtime.api.meta.ExpressionSupport;
@@ -177,8 +178,15 @@ public class CWOperations {
 		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
 		  @DisplayName("Sensitive JSON") @Expression(ExpressionSupport.SUPPORTED) String sensitiveJson,
 		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
-  		  @DisplayName("OverRide Token") @Expression(ExpressionSupport.SUPPORTED) @Placement(order = 1, tab="Advanced") String overRideToken, 
-  		  @DisplayName("Pass Phrase") @Expression(ExpressionSupport.SUPPORTED) @Password @Placement(order = 2, tab="Advanced") String passPhrase) {
+  		  @DisplayName("OverRide Token") 
+  		  @Expression(ExpressionSupport.SUPPORTED) 
+  		  @Optional(defaultValue = "_NOTOKEN_")
+  		  @Placement(order = 1, tab="Advanced") String overRideToken, 
+  		  @DisplayName("Pass Phrase") 
+  	  	  @Expression(ExpressionSupport.SUPPORTED) 
+  		  @Password 
+  		  @Optional(defaultValue = "_NOPASSPHRASE_")
+  		  @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
     try {    
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
@@ -197,8 +205,15 @@ public class CWOperations {
 		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
 		  @DisplayName("Encrypted JSON") @Expression(ExpressionSupport.SUPPORTED) String encryptedJson,
 		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
-  		  @DisplayName("OverRide Token") @Expression(ExpressionSupport.SUPPORTED) @Placement(order = 1, tab="Advanced") String overRideToken, 
-  		  @DisplayName("Pass Phrase") @Expression(ExpressionSupport.SUPPORTED) @Password @Placement(order = 2, tab="Advanced") String passPhrase) {
+		  @DisplayName("OverRide Token") 
+		  @Expression(ExpressionSupport.SUPPORTED) 
+		  @Optional(defaultValue = "_NOTOKEN_")
+		  @Placement(order = 1, tab="Advanced") String overRideToken, 
+		  @DisplayName("Pass Phrase") 
+	  	  @Expression(ExpressionSupport.SUPPORTED) 
+		  @Password 
+		  @Optional(defaultValue = "_NOPASSPHRASE_")
+		  @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
     try {    
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
