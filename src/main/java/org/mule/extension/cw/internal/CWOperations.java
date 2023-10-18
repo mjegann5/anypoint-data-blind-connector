@@ -180,12 +180,12 @@ public class CWOperations {
 		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
   		  @DisplayName("OverRide Token") 
   		  @Expression(ExpressionSupport.SUPPORTED) 
-  		  @Optional(defaultValue = "_NOTOKEN_")
+  		  @Optional(defaultValue = "NOTOKEN")
   		  @Placement(order = 1, tab="Advanced") String overRideToken, 
   		  @DisplayName("Pass Phrase") 
   	  	  @Expression(ExpressionSupport.SUPPORTED) 
   		  @Password 
-  		  @Optional(defaultValue = "_NOPASSPHRASE_")
+  		  @Optional(defaultValue = "NOPASSPHRASE")
   		  @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
     try {    
@@ -207,12 +207,12 @@ public class CWOperations {
 		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
 		  @DisplayName("OverRide Token") 
 		  @Expression(ExpressionSupport.SUPPORTED) 
-		  @Optional(defaultValue = "_NOTOKEN_")
+		  @Optional(defaultValue = "NOTOKEN")
 		  @Placement(order = 1, tab="Advanced") String overRideToken, 
 		  @DisplayName("Pass Phrase") 
 	  	  @Expression(ExpressionSupport.SUPPORTED) 
 		  @Password 
-		  @Optional(defaultValue = "_NOPASSPHRASE_")
+		  @Optional(defaultValue = "NOPASSPHRASE")
 		  @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
     try {    

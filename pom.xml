@@ -5,7 +5,7 @@
 	<!--   <groupId>ANYPOINT_ORG_ID</groupId> -->
 	<groupId>087be403-83ed-4643-9c36-cd33bf4d0423</groupId>
 	<artifactId>cwconnector</artifactId>
-	<version>1.0.19</version>
+	<version>1.0.20</version>
 	<packaging>mule-extension</packaging>
 	<name>Data Blind</name>
 	<parent>
