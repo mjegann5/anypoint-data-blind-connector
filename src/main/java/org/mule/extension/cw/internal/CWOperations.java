@@ -3,6 +3,7 @@ package org.mule.extension.cw.internal;
 import static org.mule.runtime.extension.api.annotation.param.MediaType.ANY;
 import org.mule.runtime.extension.api.annotation.values.OfValues;
 import org.mule.runtime.extension.api.annotation.param.display.DisplayName;
+import org.mule.runtime.extension.api.annotation.param.display.Password;
 import org.mule.runtime.extension.api.annotation.param.display.Placement;
 import org.mule.runtime.extension.api.annotation.param.Parameter;
 import org.mule.runtime.extension.api.annotation.connectivity.ConnectionProviders;
@@ -176,8 +177,8 @@ public class CWOperations {
 		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
 		  @DisplayName("Sensitive JSON") @Expression(ExpressionSupport.SUPPORTED) String sensitiveJson,
 		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
-  		  @DisplayName("OverRideToken") @Expression(ExpressionSupport.SUPPORTED) String overRideToken, 
-  		  @DisplayName("PassPhrase") @Expression(ExpressionSupport.SUPPORTED) String passPhrase) {
+  		  @DisplayName("OverRide Token") @Expression(ExpressionSupport.SUPPORTED) @Placement(order = 1, tab="Advanced") String overRideToken, 
+  		  @DisplayName("Pass Phrase") @Expression(ExpressionSupport.SUPPORTED) @Password @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
     try {    
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
@@ -196,8 +197,8 @@ public class CWOperations {
 		  @DisplayName("Sensitive Fields") @Expression(ExpressionSupport.SUPPORTED) String sensitiveFields,
 		  @DisplayName("Encrypted JSON") @Expression(ExpressionSupport.SUPPORTED) String encryptedJson,
 		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak, 
-  		  @DisplayName("OverRideToken") @Expression(ExpressionSupport.SUPPORTED) @Placement(order = 1, tab="Advanced") String overRideToken, 
-  		  @DisplayName("PassPhrase") @Expression(ExpressionSupport.SUPPORTED) @Placement(order = 2, tab="Advanced") String passPhrase) {
+  		  @DisplayName("OverRide Token") @Expression(ExpressionSupport.SUPPORTED) @Placement(order = 1, tab="Advanced") String overRideToken, 
+  		  @DisplayName("Pass Phrase") @Expression(ExpressionSupport.SUPPORTED) @Password @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
     try {    
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
