@@ -226,4 +226,22 @@ public class CWOperations {
     }
     return response;
   }
+ @MediaType(value = ANY, strict = false)
+ @Alias("CreateOverrideToken")
+ public String decryptJson(@Config CWConfiguration configuration,
+		  @DisplayName("Passphrase") @Expression(ExpressionSupport.SUPPORTED) String passPhrase,
+		  @DisplayName("Expiration Days") @Expression(ExpressionSupport.SUPPORTED) Integer expirationDays) {
+   String response = "OperationFailed";
+   try {    
+       KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
+       HmacToken HmacToken = new HmacToken();
+   	   response = HmacToken.generateToken( kc, passPhrase, expirationDays.intValue());
+   }
+   catch (Exception e) {
+   	System.out.println("Excception in Connector " + e);
+   	e.printStackTrace();
+   }
+   return response;
+ }
+
 }
