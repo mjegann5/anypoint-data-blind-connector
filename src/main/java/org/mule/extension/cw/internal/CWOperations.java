@@ -226,7 +226,7 @@ public class CWOperations {
     }
     return response;
   }
- @MediaType(value = ANY, strict = false)
+@MediaType(value = ANY, strict = false)
  @Alias("CreateOverrideToken")
  public String decryptJson(@Config CWConfiguration configuration,
 		  @DisplayName("Passphrase") @Expression(ExpressionSupport.SUPPORTED) String passPhrase,
