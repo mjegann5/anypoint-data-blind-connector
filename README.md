@@ -43,7 +43,7 @@
 								<dependency>
 									<groupId>io.cipherworks</groupId>
 									<artifactId>cwdatacrypt</artifactId>
-									<version>1.0.7</version>
+									<version>2.0.0</version>
 								</dependency>
 							</additionalDependencies>
 						</plugin>
