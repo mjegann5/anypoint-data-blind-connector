@@ -192,3 +192,14 @@ NIST Publication 800-38G, FPE FF1.
 - Email Address
 - JPEG, GIF, TIFF, PNG  Images
 - JSON Containing any of the above
+
+
+## How to Override the encryption for specific users
+The Connector provides operations for creating over-ride token. A passphrase and expiration period is required for creating an over-ride token. 
+
+Over-ride tokens only work when:
+- Correct passphrase is provided
+- Token has not expired
+
+
+
