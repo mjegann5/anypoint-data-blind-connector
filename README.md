@@ -198,7 +198,7 @@ NIST Publication 800-38G, FPE FF1.
 The Connector provides operations for creating over-ride token. A passphrase and expiration period is required for creating an over-ride token. 
 
 Over-ride tokens only work when:
-- Correct passphrase is provided
+- The user the passphrase used for creating the token
 - Token has not expired
 
 
