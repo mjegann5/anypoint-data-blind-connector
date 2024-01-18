@@ -43,7 +43,7 @@
 								<dependency>
 									<groupId>io.cipherworks</groupId>
 									<artifactId>cwdatacrypt</artifactId>
-									<version>1.0.7</version>
+									<version>2.0.0</version>
 								</dependency>
 							</additionalDependencies>
 						</plugin>
@@ -192,3 +192,14 @@ NIST Publication 800-38G, FPE FF1.
 - Email Address
 - JPEG, GIF, TIFF, PNG  Images
 - JSON Containing any of the above
+
+
+## How to Override the encryption for specific users
+The Connector provides operations for creating over-ride token. A passphrase and expiration period is required for creating an over-ride token. 
+
+Over-ride tokens only work when:
+- The user the passphrase used for creating the token
+- Token has not expired
+
+
+
