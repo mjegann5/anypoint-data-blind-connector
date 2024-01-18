@@ -3,9 +3,9 @@
 
 	<modelVersion>4.0.0</modelVersion>
 	<!--   <groupId>ANYPOINT_ORG_ID</groupId> -->
-	<groupId>68a89878-139a-4168-9ca0-8145b0b6feaf</groupId>
+	<groupId>3a209eb5-371f-4b87-aaa2-19c539592cea</groupId>
 	<artifactId>cwconnector</artifactId>
-	<version>2.0.6</version>
+	<version>2.0.8</version>
 	<packaging>mule-extension</packaging>
 	<name>Data Blind</name>
 	<parent>
@@ -17,7 +17,7 @@
 		<dependency>
 			<groupId>io.cipherworks</groupId>
 			<artifactId>cwdatacrypt</artifactId>
-			<version>2.0.1</version>
+			<version>2.0.3</version>
 			<scope>provided</scope>
 		</dependency>
 	</dependencies>
