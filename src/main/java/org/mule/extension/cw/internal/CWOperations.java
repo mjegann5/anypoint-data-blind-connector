@@ -25,6 +25,7 @@ import io.cipherworks.util.JsonDataCrypt;
  */
 public class CWOperations {
 
+	private static String versionTag = "v2.0.6";
   /**
    * Example of an operation that uses the configuration and a connection instance to perform some action.
    */
@@ -60,6 +61,8 @@ public class CWOperations {
   {
     //return plainText.toUpperCase() + cwType + ":" + configuration.getEncryptionKey() + ":" + configuration.getLicenseKey();
     String response = "OperationFailed";
+	System.out.println(versionTag + " DataBlind Encrypt" );    	
+
     try {
     KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
     if ( dataType.contentEquals("Phone Number") ) {
@@ -120,6 +123,7 @@ public class CWOperations {
 		  @DisplayName("Tweak") @Expression(ExpressionSupport.SUPPORTED) String tweak) {
     //return mockValue.toUpperCase() + dataType + ":" + configuration.getdecryptionKey() + ":" + configuration.getLicenseKey();
     String response = "OperationFailed";
+	System.out.println(versionTag + " DataBlind Decrypt" );    	
     try {
     KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
     if ( dataType.contentEquals("Phone Number") ) {
@@ -188,6 +192,8 @@ public class CWOperations {
   		  @Optional(defaultValue = "NOPASSPHRASE")
   		  @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
+	System.out.println(versionTag + " DataBlind EncryptJson" );    	
+
     try {    
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
     	JsonDataCrypt jsonDataCrypt = new JsonDataCrypt(kc);
@@ -215,7 +221,8 @@ public class CWOperations {
 		  @Optional(defaultValue = "NOPASSPHRASE")
 		  @Placement(order = 2, tab="Advanced") String passPhrase) {
     String response = "OperationFailed";
-    try {    
+	System.out.println(versionTag + " DataBlind DecryptJson" );    	
+    try {  
         KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
     	JsonDataCrypt jsonDataCrypt = new JsonDataCrypt(kc);
     	response = jsonDataCrypt.transform( "Decrypt", tweak, encryptedJson, sensitiveFields, overRideToken, passPhrase);
@@ -226,16 +233,36 @@ public class CWOperations {
     }
     return response;
   }
-@MediaType(value = ANY, strict = false)
- @Alias("CreateOverrideToken")
- public String decryptJson(@Config CWConfiguration configuration,
+ @MediaType(value = ANY, strict = false)
+ @Alias("OverrideToken")
+ public String overrideToken(@Config CWConfiguration configuration,
 		  @DisplayName("Passphrase") @Expression(ExpressionSupport.SUPPORTED) String passPhrase,
-		  @DisplayName("Expiration Days") @Expression(ExpressionSupport.SUPPORTED) Integer expirationDays) {
+		  @DisplayName("Expiration Seconds") @Expression(ExpressionSupport.SUPPORTED) Integer expirationSecs) {
    String response = "OperationFailed";
+   System.out.println(versionTag + " DataBlind OverrideToken" );    	
    try {    
        KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", configuration.getEncryptionKey().getBytes());
        HmacToken HmacToken = new HmacToken();
-   	   response = HmacToken.generateToken( kc, passPhrase, expirationDays.intValue());
+   	   response = HmacToken.generateToken( kc, passPhrase, expirationSecs.intValue());
+   }
+   catch (Exception e) {
+   	System.out.println("Excception in Connector " + e);
+   	e.printStackTrace();
+   }
+   return response;
+ }
+ @MediaType(value = ANY, strict = false)
+ @Alias("OverrideTokenWithNewKey")
+ public String overrideTokenWithNewKey(
+		  @DisplayName("Key") @Expression(ExpressionSupport.SUPPORTED) String key,
+		  @DisplayName("Passphrase") @Expression(ExpressionSupport.SUPPORTED) String passPhrase,
+		  @DisplayName("Expiration Seconds") @Expression(ExpressionSupport.SUPPORTED) Integer expirationSecs) {
+   String response = "OperationFailed";
+   System.out.println(versionTag + " DataBlind OverrideTokenWithNewKey" );    	
+   try {    
+       KeyContext kc = new KeyContext("CipherWorks", "Admin", "1.0", key.getBytes());
+       HmacToken HmacToken = new HmacToken();
+   	   response = HmacToken.generateToken( kc, passPhrase, expirationSecs.intValue());
    }
    catch (Exception e) {
    	System.out.println("Excception in Connector " + e);
